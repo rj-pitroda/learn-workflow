@@ -1,0 +1,18 @@
+name: Issue Created
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  issue-created:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print issue details
+        run: |
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Number: ${{ github.event.issue.number }}"
+          echo "Created By: ${{ github.event.issue.user.login }}"
+          echo "Github context: ${{ toJson(github) }}"
